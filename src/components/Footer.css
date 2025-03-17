@@ -1,0 +1,97 @@
+.footer {
+    background-color: rgb(255, 255, 255);
+    color: #666;
+    padding: 0;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;    
+}
+
+.footer-container {
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    max-width: 100%;
+    margin: 0 200;
+    flex-wrap: wrap;
+    padding: 16px 0px;
+}
+
+.footer-info {
+    max-width: 50%;
+}
+
+.footer-info h2 {
+    font-size: 12px;
+    font-weight: 200;
+    color: #000000;
+}
+
+.footer-info p {
+    margin: 5px 0;
+    line-height: 1.6;
+}
+
+.footer-info a {
+    color: #444;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-social {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-social a {
+    width: 40px;
+    height: 40px;
+    background: #999;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* 🎨 Individual hover colors */
+.footer-social a:nth-child(1):hover { background: #1877F2; } /* Facebook - Blue */
+.footer-social a:nth-child(2):hover { background: #ff0059; } /* Instagram - Pink */
+.footer-social a:nth-child(3):hover { background: #000000; } /* Email - Red */
+.footer-social a:nth-child(4):hover { background: #2c0e07; } /* Location - Orange */
+.footer-social a:nth-child(5):hover { background: #1DA1F2; } /* Paper Plane - Light Blue */
+
+.footer-bottom {
+    align-items: center;
+    max-width: 1200px;
+    margin: 0;
+    padding-top: 20px;
+    font-size: 12px;
+}
+
+.footer-bottom a {
+    text-transform: uppercase;
+    font-size: 10px;
+    color: #666;
+    text-decoration: none;
+    font-weight: 100;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+.copyright-container {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    max-width: 400px;
+    width: 360px;
+    font-size: 10px;
+    color: #666;
+    font-weight: 100;
+}

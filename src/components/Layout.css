@@ -1,0 +1,70 @@
+/* Global Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Main layout container */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 5%; /* Adjusts side spacing for smaller screens */
+}
+
+/* Add space for fixed header */
+main.main-content {
+    padding-top: 5rem;
+    flex-grow: 1;
+    width: 100%;
+}
+
+/* ✅ Responsive Adjustments */
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+    .app-container {
+        padding: 0 3%;
+    }
+    
+    main.main-content {
+        padding: 50px 3%;
+    }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+    .app-container {
+        padding: 0 2%;
+    }
+    
+    main.main-content {
+        padding: 50px 2%;
+    }
+}
+/* Ensures uniform spacing across Header, Main, and Footer */
+.container {
+    max-width: 1200px;  /* Sets a consistent width */
+    margin: 0 auto;      /* Centers content */
+    /*padding: 0 5%;        Uniform side spacing */
+}
+
+/* Adjust spacing for tablets */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 3%;
+    }
+}
+
+/* Further reduce padding for small screens */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 2%;
+    }
+}

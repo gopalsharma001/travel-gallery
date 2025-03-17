@@ -1,0 +1,83 @@
+/* Recent Exhibitions/ Galleries */
+.recent-exhibitions {
+    text-align: left;
+    overflow-x: auto;
+    
+}
+
+.recent-exhibitions h2 {
+    font-size: 1.3rem;
+    color: black;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family:  Tahoma, sans-serif;
+    margin-bottom: 20px;
+}
+
+.exhibition-grid {
+    display: flex; /* Use flexbox for horizontal scrolling */
+    gap: 20px;
+    overflow-x: auto; /* Scroll horizontally */
+    scroll-snap-type: x mandatory; /* Smooth snap scrolling */
+}
+
+/* Exhibition Card Styling */
+.exhibition-card {
+    flex: 0 0 auto; /* Prevent cards from shrinking */
+    width: 250px; /* Set a fixed width for each card */
+    scroll-snap-align: start; /* Snap alignment */
+    text-align: left;
+}
+
+.exhibition-card img {
+    width: 100%;
+    height: 12.4rem;
+    object-fit: cover;
+}
+
+.exhibition-card span, .exhibition-card p {
+    font-size: 0.7rem;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: Verdana, Tahoma, sans-serif;
+}
+/* Hide default scrollbar in Chrome, Edge, and Safari */
+.exhibition-grid::-webkit-scrollbar {
+    height: 8px; /* Thin scrollbar */
+}
+
+/* Scrollbar track (background) */
+.exhibition-grid::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light gray background */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Scrollbar thumb (draggable part) */
+.exhibition-grid::-webkit-scrollbar-thumb {
+    background: #888; /* Darker gray */
+    border-radius: 10px;
+}
+
+/* On hover, make the thumb darker */
+.exhibition-grid::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+/* ✅ Responsive Breakpoints */
+
+/* Tablets: 2 in a row */
+@media (max-width: 1024px) {
+    .exhibition-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+/* Mobile: 1 in a row */
+@media (max-width: 600px) {
+    .exhibition-grid {
+        grid-template-columns: repeat(1, 1fr); 
+    }
+}

@@ -1,0 +1,84 @@
+.place-details {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .hero {
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  .info-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .info-card {
+    background: #f5f5f5;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .description {
+    margin-top: 20px;
+  }
+  
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
+  
+  .gallery-grid img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  .nearby-list {
+    display: flex;
+    flex-direction: column; /* Places images in a vertical column */
+    gap: 20px;
+  }
+  
+  .nearby-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+    height: 80vh; /* Each attraction takes most of the viewport height */
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .scroll-container {
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enables individual scrolling */
+  }
+  
+  .scroll-container img {
+    width: 100%;
+    height: auto; /* Adjust this based on the aspect ratio you want */
+    object-fit: cover; /* Ensures images cover the container */
+  }
+  
+  
+  .reviews {
+    margin-top: 20px;
+  }
+  
+  .review {
+    background: #f5f5f5;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
