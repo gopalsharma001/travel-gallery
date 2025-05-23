@@ -4,33 +4,93 @@
   }
   
   .hero {
+    position: relative;
     background-size: cover;
     background-position: center;
-    height: 300px;
+    aspect-ratio: 2.4 / 1; /* width:height → 2.4:1 = 1:2.4 */
+    width: 100%;
     color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 0; /* Add this line */
+    overflow: hidden; /* Optional: ensure no overflow from ::before */
   }
   
+  /* Add the dark overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* black with opacity */
+  z-index: -1;
+}
+
+  .hero h1{
+    margin: 0px;
+  }
+  .hero p{
+    margin: 0px;
+  }
+  .hero-content {
+    text-align: center;
+    z-index: 1; /* ensures it appears above background */
+  }
+
+  .rating {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    max-width: 90%; /* prevent overflow */
+    box-sizing: border-box;
+  }
+  
+  
+
   .info-section {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin: 20px 0;
+    margin: 10px 0;
   }
   
   .info-card {
     background: #f5f5f5;
+    font-size: 1rem;
     padding: 10px;
     border-radius: 8px;
   }
   
   .description {
-    margin-top: 20px;
+    position: relative;
+    background: linear-gradient(to right, #f0f0f0 100px, #ffffff 100%);
+    border-left: 5px solid #4caf50;
+    padding: 20px 25px;
+    margin: 30px 0;
+    border-radius: 8px;
   }
+  
+  .description h2 {
+    margin-bottom: 12px;
+    font-size: 1.6rem;
+    color: #222;
+    font-weight: 600;
+  }
+  
+  .description p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.7;
+  }
+  
   
   .gallery-grid {
     display: grid;
@@ -44,30 +104,32 @@
   }
   .nearby-list {
     display: flex;
-    flex-direction: column; /* Places images in a vertical column */
+    flex-direction: column;
     gap: 20px;
+    width: 100%;
   }
   
   .nearby-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%; 
-    height: 80vh; /* Each attraction takes most of the viewport height */
-    overflow: hidden;
-    position: relative;
+    width: 100%;
   }
   
   .scroll-container {
     width: 100%;
-    height: 100%;
-    overflow: auto; /* Enables individual scrolling */
+    overflow: hidden;
   }
   
   .scroll-container img {
     width: 100%;
-    height: auto; /* Adjust this based on the aspect ratio you want */
-    object-fit: cover; /* Ensures images cover the container */
+    height: auto; /* maintain aspect ratio */
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .nearby-card p {
+    margin-top: 8px;
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: 500;
   }
   
   
@@ -76,9 +138,148 @@
   }
   
   .review {
-    background: #f5f5f5;
+    background: linear-gradient(to right, #f0f0f0 40px, #ffffff 90%);
+    border-left: 5px solid #4caf50;
     padding: 10px;
     border-radius: 8px;
     margin-bottom: 10px;
   }
   
+  .travel-tips {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 30px 0;
+    border-left: 5px solid #4caf50; /* green highlight */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .travel-tips h2 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .travel-tips p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+
+  /* // Nearby attractions */
+
+  /* Attractions Grid */
+  .nearby-attractions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Card Container */
+  .nearby-attractions-card {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    font-family: Verdana, Tahoma, sans-serif !important;
+    letter-spacing: 0.5px;
+  }
+  
+  .nearby-attractions-card:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Image Styling */
+  .nearby-attractions-card img {
+    width: 100%;
+    min-height: 180px;
+    object-fit: cover;
+    aspect-ratio: 1 / 0.5;
+  }
+  
+  /* Card Content */
+  .nearby-attractions-card h3 {
+    font-size: 1.2rem;
+    color: #222;
+    text-align: center;
+    margin: 12px 0 0;
+    padding: 0 10px;
+  }
+  
+  .nearby-attractions-card p {
+    font-size: 0.95rem;
+    color: #555;
+    text-align: center;
+    padding: 4px 12px;
+  }
+  
+  /* Button */
+  .bucket-list-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffd700;
+    color: #333;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background 0.3s;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .bucket-list-btn:hover {
+    background: #ffcc00;
+    transform: scale(1.05);
+    font-weight: bold;
+  }
+  
+  /* Icon */
+  .bucket-icon {
+    margin-right: 8px;
+    color: #ff9800;
+    font-size: 18px;
+  }
+  
+
+
+    /* For small screens: override aspect ratio with min-height */
+@media (max-width: 768px) {
+  .hero {
+    aspect-ratio: auto;       /* Cancel aspect ratio */
+    min-height: 290px;        /* Give a readable height */
+  }
+  .rating {
+    top: 0.75rem;
+    right: 0;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+}
+
+/* On smaller screens, stack cards vertically */
+@media (max-width: 600px) {
+  .info-section {
+    flex-direction: column;
+  }
+  
+  .info-card {
+    flex: none;
+    width: 100%;
+    font-size: 1rem;
+    min-width: auto;
+    background: linear-gradient(to right, #f0f0f0 40px, #ffffff 90%);
+  }
+}

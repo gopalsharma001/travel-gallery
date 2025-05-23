@@ -9,6 +9,7 @@ import DelhiPage from "./pages/DelhiPage.jsx";
 import CityPage from './components/CityPage';
 import assests from "./assests";
 import PlaceDetails from './components/PlaceDetails.jsx';
+import ReviewsPage from "./components/ReviewsPage.jsx"
 function App() {
   const delhiAttractions = [
       { title: "Red Fort", location: "Symbol of India's Independence", imageUrl: assests.redfort },
@@ -27,6 +28,7 @@ function App() {
           <Route path="/places/:placeId" element={<PlaceDetails />} />
           <Route path="city/:cityName" element={ <CityPage />} />
           <Route path="bucket-list" element={<BucketList />} />
+          <Route path="reviews-page" element={<ReviewsPage/>}/>
         </Route>
       </Routes>
     </Router>

@@ -48,6 +48,7 @@ const redfort = {
     reviews: [
       { user: "Amit", comment: "Amazing place with great history!", rating: 5 },
       { user: "Sara", comment: "Loved the architecture!", rating: 4.5 },
+      { user: "Sara", comment: "Loved the architecture!", rating: 4 },
     ],
     tips: "Carry an ID, best visited in the evening, avoid weekends for crowds.",
   };

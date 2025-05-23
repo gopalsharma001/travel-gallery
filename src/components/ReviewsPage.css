@@ -1,0 +1,166 @@
+/* Review Page Container */
+.review-page {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background: #f9f9f9;
+  }
+  
+  /* Filters */
+  .filter-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+
+  
+/* Add a custom arrow */
+/* Dropdown Wrapper */
+.dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Style the Select */
+  .dropdown-wrapper select {
+    padding: 12px 40px 12px 15px; /* Space for custom arrow */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    appearance: none; /* Hide the native arrow */
+    background: white;
+    width: 150px; /* Adjust width */
+  }
+  
+  /* Custom Arrow */
+  .custom-arrow {
+    position: absolute;
+    right: 25px;  /* Move arrow slightly to the left */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555;
+    pointer-events: none; /* Prevent arrow from blocking clicks */
+    font-size: 12px;
+  }
+  
+  /* Hover Effect */
+  .dropdown-wrapper:hover select {
+    border-color: #007bff;
+  }
+  
+  /* Review Grid */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Review Card */
+  .review-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Review Card Content */
+  .review-card h3 {
+    font-size: 20px;
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  .review-card span {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .review-card p {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.5;
+    margin: 10px 0;
+  }
+  
+  .review-card small {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-top: 10px;
+  }
+  
+  .user {
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+  }
+  
+  /* Star Ratings */
+  .rating-stars {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 10px 0;
+  }
+  
+  .rating-stars svg {
+    font-size: 20px;
+    color: #ffc107;
+  }
+  
+  /* Pagination */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0;
+  }
+  
+  .pagination button {
+    padding: 12px 24px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+  }
+  
+  .pagination button:hover {
+    background: #0056b3;
+  }
+  
+  .pagination button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .review-page {
+      padding: 20px;
+    }
+  
+    .filter-container {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .pagination button {
+      padding: 10px 20px;
+    }
+  }
+  

@@ -4,21 +4,22 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import delhi from "../assests/delhi.png";
-import jaipur from "../assests/jaipur.png";
-import mumbai from "../assests/mumbai.png";
-import hm from "../assests/hawamahal2.jpg";
+import delhi from "../assests/delhi-indiagate.webp";
+import jalmahal from "../assests/jalmahal.jpeg";
+import mumbai from "../assests/mumbai.webp";
+import goa from "../assests/goa.jpg";
 import CitySelection from "./CitySelection.tsx";
 import ImageGallery from "../components/ImageGallery.jsx";
 import assets from "../assests";
+import "../styles/Home.css";
 const cities = [
-  { name: "Jaipur", image: jaipur, description: "The Pink City of India." },
+  { name: "Jaipur", image: jalmahal, description: "The Pink City of India." },
   { name: "Delhi", image: delhi, description: "Capital city with rich history." },
-  { name: "Goa", image: hm, description: "Famous for beaches and nightlife." },
+  { name: "Goa", image: goa, description: "Famous for beaches and nightlife." },
   { name: "Mumbai", image:mumbai, description: "City of dreams and Bollywood." },
 ];
 const places = [
-  { title: "Jaipur",location: "The Pink City of India.", imageUrl: jaipur},
+  { title: "Jaipur",location: "The Pink City of India.", imageUrl: jalmahal},
   { title: "Delhi",location: "The Pink City of India.", imageUrl: delhi},
   { title: "Mumbai",location: "The Pink City of India.", imageUrl: mumbai},
 ];

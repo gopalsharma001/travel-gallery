@@ -21,7 +21,7 @@ const delhiCafes = {
       {
         "title": "Blue Tokai Coffee Roasters",
         "location": "Saket, New Delhi",
-        "imageUrl": assets.akshardhamdelhi
+        "imageUrl": assets.bluetokai
       },
       {
         "title": "Big Chill Cafe",

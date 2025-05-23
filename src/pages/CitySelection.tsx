@@ -4,7 +4,7 @@ import "../styles/CitySelection.css";
 import hm from "../assests/hawamahal2.jpg";
 import delhi from "../assests/delhi.png";
 import jaipur from "../assests/jaipur.png";
-import mumbai from "../assests/mumbai.png";
+import mumbai from "../assests/mumbai.webp";
 import gurgaon from "../assests/skyscraper.png";
 import { useNavigate } from "react-router-dom";
 const popularCities = [

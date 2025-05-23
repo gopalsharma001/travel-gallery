@@ -135,7 +135,7 @@
     justify-content: center;
     gap: 6px;  /* Adds space between text and icon */
     
-    margin-top: 20px;
+    margin-bottom: 20px;
     border: none;
     background-color: transparent;
     color: rgb(0, 0, 0);
@@ -157,4 +157,40 @@
     font-size: 14px; /* Adjust icon size to match text */
     vertical-align: middle; /* Ensures the icon aligns with text */
   }
+  /* Review button */
+.review-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffd700;
+    color: #333;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background 0.3s;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
   
+  .review-btn:hover {
+    background: #ffcc00;
+    scale: 1.1;
+    font-weight: bold;
+  }
+  
+  /* Star icon */
+  .star-icon {
+    margin-right: 5px;
+    color: #ff9800;
+    font-size: 18px;
+  }
+
+  .carousel-image{
+    width: 100%;
+    height: auto;
+    max-height: 550px;
+    object-fit: cover;
+  }

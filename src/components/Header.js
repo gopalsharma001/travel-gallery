@@ -94,6 +94,21 @@ const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const searchRef = useRef(null);
 
+// to stop scrolling when mobile menu is open
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+          document.body.style.overflow = "hidden";
+        } else {
+          document.body.style.overflow = "";
+        }
+      
+        // Cleanup on unmount
+        return () => {
+          document.body.style.overflow = "";
+        };
+      }, [isMobileMenuOpen]);
+
+
     // Click outside to close search
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -137,10 +152,11 @@ const Header = () => {
                             <li><NavLink to="/city" className={({ isActive }) => isActive ? "active" : ""}>City</NavLink></li>
                             <li><NavLink to="/bucket-list" className={({ isActive }) => isActive ? "active" : ""}>Bucket List</NavLink></li>
                             <li className="nav-icon">
-                                <NavLink to="/top-rated" className={({ isActive }) => isActive ? "active" : ""} title="Top Rated Places">
+                                <NavLink to="/city" className={({ isActive }) => isActive ? "active" : ""} title="Top Rated Places">
                                     Top Rated
                                 </NavLink>
                             </li>
+                            <li><NavLink to="/reviews-page" className={({ isActive }) => isActive ? "active" : ""}>Reviews</NavLink></li>
                         </ul>
                     </nav>
 
@@ -176,6 +192,9 @@ const Header = () => {
 
             {/* Mobile Navigation Menu */}
             <div className={`mobile-menu ${isMobileMenuOpen ? "show" : ""}`}>
+                <div className="mobile-menu-close" onClick={() => setIsMobileMenuOpen(false)} role="button" tabIndex={0} aria-label="Close menu">
+                    <FaTimes />
+                </div>
                 <ul>
                     <li><NavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</NavLink></li>
                     <li><NavLink to="/city" onClick={() => setIsMobileMenuOpen(false)}>City</NavLink></li>

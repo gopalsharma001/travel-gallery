@@ -22,7 +22,7 @@ const images = [
     subtitle: "Peaceful Evening",
   },
   {
-    src: am,
+    src: hawamahal,
     title: "Ocean Breeze",
     subtitle: "Refreshing & Calm",
   },
