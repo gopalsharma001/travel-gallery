@@ -3,6 +3,7 @@ import "./PlaceDetails.css";
 import { useParams } from "react-router-dom";
 import PlaceData from "../utils/images/PlaceData";
 import { FaBucket } from "react-icons/fa6";
+import { useBucketList } from "../contexts/BucketListContext";
 const PlaceDetails = () => {
   const { placeId } = useParams();
   console.log(placeId);
@@ -11,16 +12,9 @@ const PlaceDetails = () => {
   console.log(place);
   const ratings = place.reviews.map(r => r.rating);
   const avgRating = (ratings.reduce((a, b) => a + b, 0) / ratings.length).toFixed(1); // e.g. "4.8"
+  const { addToBucketList } = useBucketList(); // addd to bucket list context
   // ✅ Handle Add to bucket Click
-  const handleAddToBucketListClick = (e, place) => {
-    // e.stopPropagation();
-    // setSelectedPlace(place);       // Store the selected place
-    // setShowFlyout(true);
-    console.log("Clicked");
-
-  };
   if (!place) return <p>Loading...</p>;
-
   return (
     <div className="place-details">
       {/* Hero Section */}
@@ -91,7 +85,7 @@ const PlaceDetails = () => {
 
               <button
                 className="bucket-list-btn"
-                onClick={(e) => handleAddToBucketListClick(e, place)}
+                onClick={() => addToBucketList(attraction)}
               >
                 <FaBucket className="bucket-icon" />
                 Add to Bucket List

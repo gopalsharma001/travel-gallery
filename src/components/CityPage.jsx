@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./CityPage.css";
 import { useParams, useNavigate } from "react-router-dom";
 import citiesData from "../utils/images/CitiesData";
-import { FaAngleDoubleLeft, FaStar, FaAngleDoubleRight } from "react-icons/fa";
+import { FaAngleDoubleLeft, FaStar, FaAngleDoubleRight, FaBookmark, FaCheckCircle } from "react-icons/fa";
 import CafesRestaurants from "./CafeRestaurants";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
@@ -11,7 +11,8 @@ import "swiper/css/pagination";
 import "../styles/Home.css";
 import "../index.css";
 import ReviewFlyout from "./ReviewFlyout";  // ✅ Import Flyout
-
+import { useBucketList } from "../contexts/BucketListContext";
+import { FaBucket } from "react-icons/fa6";
 const CityPage = () => {
     const { cityName } = useParams();
     const categories = ["All", "Historical", "Adventure", "Food", "Religious"];
@@ -23,7 +24,9 @@ const CityPage = () => {
     const navigate = useNavigate();
     const [showFlyout, setShowFlyout] = useState(false);
     const [selectedPlace, setSelectedPlace] = useState(null);  // ✅ Track selected place
-
+    // Add to bucket list btn 
+    const { bucketList, addToBucketList } = useBucketList();
+    const isAdded = bucketList.some(item => item.id === filteredPlaces.id);
     // ✅ Handle Review Click
     const handleReviewClick = (e, place) => {
         e.stopPropagation();
@@ -54,6 +57,13 @@ const CityPage = () => {
         ? cityData.attractions
         : cityData.attractions.filter(place => place.category.trim().toLowerCase() === selectedCategory.trim().toLowerCase());
 
+    const handleAdd = (e, place) => {
+        e.stopPropagation();
+        addToBucketList(place);
+        if (!isAdded) {
+            addToBucketList(place);
+        }
+    };
     return (
         <>
             <div>
@@ -107,6 +117,20 @@ const CityPage = () => {
                                     <button className="review-btn" onClick={(e) => handleReviewClick(e, place)}>
                                         <FaStar className="star-icon" /> Write Review
                                     </button>
+
+                                    {/* Add to Bucket List Button */}
+                                    <button
+                                        className="bucket-list-hover-btn"
+                                        onClick={(e) => handleAdd(e, place)}
+                                        title={isAdded ? "Already in Bucket List" : "Add to Bucket List"}
+                                    >
+                                        {isAdded ? (
+                                            <FaCheckCircle size={30} color="limegreen" />
+                                        ) : (
+                                            <FaBookmark size={30} color="gold" />
+                                        )}
+                                    </button>
+
                                 </div>
                             ))
                         ) : (
@@ -142,7 +166,7 @@ const CityPage = () => {
 
             {/* Flyout Renders Outside Main Div */}
             {showFlyout && selectedPlace && (
-                <ReviewFlyout 
+                <ReviewFlyout
                     place={selectedPlace}
                     onClose={handleCloseFlyout}
                 />

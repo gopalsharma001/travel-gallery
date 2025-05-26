@@ -92,6 +92,27 @@
     padding: 0 10px 15px;
 }
 
+.bucket-list-hover-btn {
+    position: absolute;
+    border: none;
+    background: transparent;
+    top: 10px;
+    right: 0px;
+    cursor: pointer;
+    display: none; /* 👈 Hidden by default */
+    z-index: 10;
+    opacity: 0;
+  transition: opacity 0.2s ease;
+  }
+  
+  .place-card:hover .bucket-list-hover-btn {
+    display: block; /* 👈 Show on hover */
+    opacity: 1;
+  }
+  .bucket-icon {
+    font-size: 30px;  /* Bigger size */
+    color: red;       /* Red color */
+  }
 .button-container {
     display: flex;
     flex-wrap: wrap;
